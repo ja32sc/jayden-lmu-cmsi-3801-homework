@@ -13,14 +13,13 @@ def change(amount: int) -> dict[int, int]:
     return counts
 
 
-# Write your first then lower case function here
 def first_then_lower_case(array, predicate):
     for item in array:
         if predicate(item):
             return item.lower()
     return None
 
-# Write your powers generator here
+
 def powers_generator(base :int, limit: int):
     power = 0
     while (result := base ** power) <= limit:
@@ -28,20 +27,15 @@ def powers_generator(base :int, limit: int):
         power += 1
 
 
-
-# Write your say function here
 def say(message: str = '') -> Callable:
     def add(next_word: str = None):
-        nonlocal message
         if next_word is None:
             return message
-        message += f" {next_word}"
-        return add
+        return say(f"{message} {next_word}")
+
     return add
 
 
-
-# Write your line count function here
 def meaningful_line_count(filename: str) -> int:
     try:
         with open(filename, 'r') as file:
@@ -49,7 +43,7 @@ def meaningful_line_count(filename: str) -> int:
     except FileNotFoundError as e:
         raise FileNotFoundError(f'No such file: {filename}') from e
 
-# Write your Quaternion class here
+
 class Quaternion:
     def __init__(self, a: float, b: float, c: float, d: float):
         self.a = a
