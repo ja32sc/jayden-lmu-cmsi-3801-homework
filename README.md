@@ -5,6 +5,7 @@ Name: Jayden Soto
 
 
 - **Homework 1 (Scripting)**: Lua, Python, JavaScript
+
 After submission of homework 1, the Lua, Python, and JavaScript folders of the
 repository now contain the code of the functions that were previously blank. Now,
 along with the already completed change function, functions for first_then_lower_case,
