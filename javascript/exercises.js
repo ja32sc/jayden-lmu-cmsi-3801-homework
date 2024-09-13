@@ -16,14 +16,14 @@ export function change(amount) {
   return counts
 }
 
-// Write your first then lower case function here
+
 export function firstThenLowerCase(strings, predicate) {
   const first = strings.find(predicate)
   return first?.toLowerCase()
 
 }
 
-// Write your powers generator here
+
 export function* powersGenerator({ofBase, upTo}) {
   let value = 1
   while (value <= upTo) {
@@ -32,7 +32,7 @@ export function* powersGenerator({ofBase, upTo}) {
   }
 }
 
-// Write your say function here
+
 export function say(word = "") {
   let sentence = word.trim()
   return function nextWord(next = "") {
@@ -44,7 +44,7 @@ export function say(word = "") {
   }
 }
 
-// Write your line count function here
+
 export async function meaningfulLineCount(filePath) {
   try {
     const file = await open(filePath, 'r')
@@ -61,7 +61,7 @@ export async function meaningfulLineCount(filePath) {
   }
 }
 
-// Write your Quaternion class here
+
 export class Quaternion {
   constructor(a, b, c, d) {
     this._a = a
