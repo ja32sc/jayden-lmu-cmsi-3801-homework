@@ -13,7 +13,7 @@ function change(amount)
   return counts
 end
 
--- Write your first then lower case function here
+
 function first_then_lower_case(array, predicate)
   for _, value in ipairs(array) do
     if predicate(value) then
@@ -23,7 +23,6 @@ function first_then_lower_case(array, predicate)
 end
 
 
--- Write your powers generator here
 function powers_generator(base, limit)
   local power = 1
   return coroutine.create(function()
@@ -34,13 +33,12 @@ function powers_generator(base, limit)
   end)
 end
 
--- Write your say function here
+
 function say(word)
   if word == nil then
     return ""
   end
   return function(next)
-    -- NOT RIGHT BUT SHOULD HELP TO COMPILE
     if next == nil then
       return word
     else
@@ -49,7 +47,7 @@ function say(word)
   end
 end
 
--- Write your line count function here
+
 function meaningful_line_count(filename)
   local file, err = io.open(filename, "r")
   if not file then
@@ -58,9 +56,7 @@ function meaningful_line_count(filename)
 
   local count = 0
   for line in file:lines() do
-    -- Remove leading and trailing whitespace
     local trimmed_line = line:match("^%s*(.-)%s*$")
-    -- Check if line is not empty and does not start with '#'
     if #trimmed_line > 0 and not trimmed_line:match("^#") then
       count = count + 1
     end
@@ -70,17 +66,15 @@ function meaningful_line_count(filename)
   return count
 end
 
--- Write your Quaternion table here
+
 Quaternion = (function()
   local Quaternion = {}
   Quaternion.__index = Quaternion
 
-  -- Constructor
   function Quaternion.new(a, b, c, d)
     return setmetatable({a = a, b = b, c = c, d = d}, Quaternion)
   end
 
-  -- Add two quaternions
   function Quaternion:__add(q)
     if getmetatable(q) ~= getmetatable(self) then
       error("Attempt to add a non-Quaternion value")
@@ -88,7 +82,6 @@ Quaternion = (function()
     return Quaternion.new(self.a + q.a, self.b + q.b, self.c + q.c, self.d + q.d)
   end
 
-  -- Multiply two quaternions
   function Quaternion:__mul(q)
     if getmetatable(q) ~= getmetatable(self) then
       error("Attempt to multiply by a non-Quaternion value")
@@ -103,7 +96,6 @@ Quaternion = (function()
     )
   end
 
-  -- Equality check
   function Quaternion:__eq(q)
     if getmetatable(q) ~= getmetatable(self) then
       return false
@@ -111,7 +103,6 @@ Quaternion = (function()
     return self.a == q.a and self.b == q.b and self.c == q.c and self.d == q.d
   end
 
-  -- String representation
   function Quaternion:__tostring()
     local parts = {}
     if self.a ~= 0 then table.insert(parts, string.format("%.1f", self.a)) end
@@ -121,16 +112,13 @@ Quaternion = (function()
     return table.concat(parts) == "" and "0" or table.concat(parts)
   end
 
-  -- Return coefficients as an array
   function Quaternion:coefficients()
     return {self.a, self.b, self.c, self.d}
   end
 
-  -- Conjugate
   function Quaternion:conjugate()
     return Quaternion.new(self.a, -self.b, -self.c, -self.d)
   end
 
-  -- Set metatable for the class
   return setmetatable(Quaternion, {__index = Quaternion})
 end)()
