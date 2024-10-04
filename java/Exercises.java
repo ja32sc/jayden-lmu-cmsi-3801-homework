@@ -9,9 +9,8 @@ import java.io.IOException;
 
 public class Exercises {
     public static void main(String[] args) {
-
+      
     }
-
 
     static Map<Integer, Long> change(long amount) {
         if (amount < 0) {
@@ -33,27 +32,24 @@ public class Exercises {
     }
 
     static record Sayer(String phrase) {
-      Sayer and(String word) {
-        String separator = phrase.endsWith(" ") || word.startsWith(" ") ? "" : " ";
-        return new Sayer(phrase + separator + word);
+        Sayer and(String word) {
+            String separator = phrase.endsWith(" ") || word.startsWith(" ") ? "" : " ";
+            return new Sayer(phrase + separator + word);
+        }
     }
-}
 
     public static Sayer say() {
-      return new Sayer("");
+        return new Sayer("");
     }
 
     public static Sayer say(String word) {
-      return new Sayer(word);
+        return new Sayer(word);
     }
-
-
-
 
     public static long meaningfulLineCount(String filePath) throws IOException {
         try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
             return reader.lines()
-                    .filter(line -> line.trim().length() > 0)
+                    .filter(line -> !line.trim().isEmpty())
                     .count();
         }
     }
@@ -96,36 +92,14 @@ record Quaternion(double a, double b, double c, double d) {
     public String toString() {
         StringBuilder result = new StringBuilder();
 
-        if (a != 0) {
-            result.append(a);
-        }
-
-        if (b != 0) {
-            if (result.length() > 0) {
-                result.append(b > 0 ? "+" : "");
-            }
-            result.append(b).append("i");
-        }
-
-        if (c != 0) {
-            if (result.length() > 0) {
-                result.append(c > 0 ? "+" : "");
-            }
-            result.append(c).append("j");
-        }
-
-        if (d != 0) {
-            if (result.length() > 0) {
-                result.append(d > 0 ? "+" : "");
-            }
-            result.append(d).append("k");
-        }
+        if (a != 0) result.append(a);
+        if (b != 0) result.append(result.length() > 0 && b > 0 ? "+" + b + "i" : b + "i");
+        if (c != 0) result.append(result.length() > 0 && c > 0 ? "+" + c + "j" : c + "j");
+        if (d != 0) result.append(result.length() > 0 && d > 0 ? "+" + d + "k" : d + "k");
 
         return result.length() == 0 ? "0" : result.toString();
     }
 }
-
-
 
 sealed interface BinarySearchTree permits Empty, Node {
     int size();
