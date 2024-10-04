@@ -66,7 +66,6 @@ record Quaternion(double a, double b, double c, double d) {
     static final Quaternion J = new Quaternion(0, 0, 1, 0);
     static final Quaternion K = new Quaternion(0, 0, 0, 1);
 
-    // Constructor that checks for NaN coefficients
     Quaternion {
         if (Double.isNaN(a) || Double.isNaN(b) || Double.isNaN(c) || Double.isNaN(d)) {
             throw new IllegalArgumentException("Coefficients cannot be NaN");
