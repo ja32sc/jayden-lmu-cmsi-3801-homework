@@ -109,37 +109,49 @@ indirect enum BinarySearchTree: CustomStringConvertible {
 
     var size: Int {
         switch self {
-        case .empty: return 0
-        case let .node(_, left, right): return 1 + left.size + right.size
+        case .empty:
+            return 0
+        case let .node(_, left, right):
+            return 1 + left.size + right.size
         }
     }
 
     func contains(_ value: String) -> Bool {
         switch self {
-        case .empty: return false
+        case .empty:
+            return false
         case let .node(v, left, right):
-            if value == v { return true }
-            if value < v { return left.contains(value) }
-            return right.contains(value)
+            if value == v {
+                return true
+            } else if value < v {
+                return left.contains(value)
+            } else {
+                return right.contains(value)
+            }
         }
     }
 
     func insert(_ value: String) -> BinarySearchTree {
         switch self {
-        case .empty: return .node(value: value, left: .empty, right: .empty)
+        case .empty:
+            return .node(value: value, left: .empty, right: .empty)
         case let .node(v, left, right):
-            if value < v { return .node(value: v, left: left.insert(value), right: right) }
-            return .node(value: v, left: left, right: right.insert(value))
+            if value < v {
+                return .node(value: v, left: left.insert(value), right: right)
+            } else {
+                return .node(value: v, left: left, right: right.insert(value))
+            }
         }
     }
 
     var description: String {
         switch self {
-        case .empty: return "()"
+        case .empty:
+            return "()"
         case let .node(value, left, right):
-            let leftDesc = left.description
-              let rightDesc = right.description
-                return "(\(leftDesc)\(value)\(rightDesc))"
+            let leftStr = left.description == "()" ? "" : left.description
+            let rightStr = right.description == "()" ? "" : right.description
+            return "(\(leftStr)\(value)\(rightStr))"
         }
     }
 }
