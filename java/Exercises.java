@@ -9,7 +9,7 @@ import java.io.IOException;
 
 public class Exercises {
     public static void main(String[] args) {
-      
+
     }
 
     static Map<Integer, Long> change(long amount) {
@@ -33,7 +33,11 @@ public class Exercises {
 
     static record Sayer(String phrase) {
         Sayer and(String word) {
-            String separator = phrase.endsWith(" ") || word.startsWith(" ") ? "" : " ";
+            if (phrase.isEmpty()) {
+                return new Sayer(word);
+            }
+
+            String separator = (word.isEmpty()) ? "" : " ";
             return new Sayer(phrase + separator + word);
         }
     }
@@ -46,10 +50,13 @@ public class Exercises {
         return new Sayer(word);
     }
 
+
     public static long meaningfulLineCount(String filePath) throws IOException {
         try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
             return reader.lines()
-                    .filter(line -> !line.trim().isEmpty())
+                    .map(String::trim)
+                    .filter(line -> !line.isEmpty())
+                    .filter(line -> !line.startsWith("//") && !line.startsWith("#"))
                     .count();
         }
     }
