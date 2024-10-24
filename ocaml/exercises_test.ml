@@ -31,7 +31,7 @@ expect (change(10000000000005) = [400000000000; 0; 1; 0]);;
 
 (* Uncomment the following tests as you complete the exercises *)
 
-(*
+
 let non_empty s = s <> "";;
 let length_greater_than_3 s = String.length s > 3;;
 let lower s = Some (String.lowercase_ascii s);;
@@ -50,7 +50,7 @@ let g1 = powers_generator 1 in (
   expect_equal_lists (Seq.take 3 g1 |> List.of_seq) [1; 1; 1];
   expect_equal_lists (Seq.take 0 g1 |> List.of_seq) []
 );;
-let g2 = powers_generator 2 in ( 
+let g2 = powers_generator 2 in (
   expect_equal_lists (Seq.take 10 g2 |> List.of_seq) [1; 2; 4; 8; 16; 32; 64; 128; 256; 512];
   expect_equal_lists (Seq.take 3 g2 |> List.of_seq) [1; 2; 4];
   expect_equal_lists (Seq.take 0 g2 |> List.of_seq) []
@@ -97,6 +97,6 @@ let t5 = insert 4 t4 in (
   expect (inorder t4 = [3; 5; 7]);
   expect (inorder t5 = [3; 4; 5; 7]);
 );;
-*)
+
 
 Printf.printf "\n%d passed, %d failed\n" !passes !failures;;
