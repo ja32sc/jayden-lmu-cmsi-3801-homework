@@ -43,9 +43,11 @@ powers base = map (base^) [0..]
 meaningfulLineCount :: FilePath -> IO Int
 meaningfulLineCount path = do
     contents <- readFile path
-    return $ length $ filter meaningfulLine $ lines contents
-    where
-        meaningfulLine line = not (all isSpace line) && not ("--" `isPrefixOf` line)
+    return $ length $ filter isMeaningful $ lines contents
+
+isMeaningful :: String -> Bool
+isMeaningful line = not (all isSpace trimmed) && not (isPrefixOf "#" trimmed)
+  where trimmed = dropWhile isSpace line
 
 
 data Shape
