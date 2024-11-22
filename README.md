@@ -29,4 +29,9 @@ look for its surface area and volume. The shape type as well as all functions sh
 without error and quick to run through the tests.
 
 - **Homework 4 (Systems)**: C, C++, Rust
+
+After submission of homework 4, C, C++, and Rust folder are completed with the required code 
+needed to pass all the tests within the files. The code was of all the languages was 
+implementing stacks. 
+
 - **Homework 5 (Concurrency)**: Go
