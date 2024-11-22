@@ -31,7 +31,8 @@ without error and quick to run through the tests.
 - **Homework 4 (Systems)**: C, C++, Rust
 
 After submission of homework 4, C, C++, and Rust folder are completed with the required code 
-needed to pass all the tests within the files. The code was of all the languages was 
-implementing stacks. 
+needed to pass all the tests within the files. The code of all the languages was 
+implementing stacks through its creation, pushing it, popping it, peeking, the length, and 
+seeing whether it was empty or full.
 
 - **Homework 5 (Concurrency)**: Go
