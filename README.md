@@ -36,3 +36,10 @@ implementing stacks through its creation, pushing it, popping it, peeking, the l
 seeing whether it was empty or full.
 
 - **Homework 5 (Concurrency)**: Go
+
+After submission of homework 4, the Go folder is completed with the required code to run a
+restaurant simulation. The restaurant simulation code is based on an existing code that was 
+provided as a solution in java that needed to be translated over to go. The simulation takes 
+into account everything from, who places an order, who cook it, if a customer waits too long, 
+etc. The code runs with no errors and smootly goes through the process until the restaruant 
+closes once all conditions are met. 
